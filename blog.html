@@ -39,10 +39,10 @@
 					<div class="navbar-collapse collapse">							
 						<div class="menu">
 							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation"><a href="index.html">Home</a></li>
+								<!--<li role="presentation"><a href="index.html">Home</a></li>-->
 								<li role="presentation"><a href="about.html">About Us</a></li>
-								<li role="presentation"><a href="services.html">Services</a></li>								
-								<li role="presentation"><a href="portfolio.html">Portfolio</a></li>
+								<!--<li role="presentation"><a href="services.html">Services</a></li>								
+								<li role="presentation"><a href="portfolio.html">Portfolio</a></li>-->
 								<li role="presentation"><a href="blog.html" class="active">Blog</a></li>
 								<li role="presentation"><a href="contact.html">Contact</a></li>						
 							</ul>
@@ -78,9 +78,33 @@
                             </div>
                                 
                             <div class="col-xs-12 col-sm-10 blog-content">
-                                <a href="#"><img class="img-responsive img-blog" src="images/blog/blog1.jpg" width="100%" alt="" /></a>
-                                <h4>Consequat bibendum quam liquam viverra</h4>
-                                <p>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</p>
+                                <h3>Web Server Vs. App Server</h3>
+								<a href="#"><img class="img-responsive img-blog" src="images/blog/blog1.jpg" width="100%" alt="" /></a>
+                                
+                                <p> Historically, they were different, but through the 90's these two previously distinct categories blended features and effectively merged. At this point is is probably best to imagine that the "App Server" product category is a strict superset of the "web server" category.
+
+Some history. In early days of the Mosaic browser and hyperlinked content, there evolved this thing called a "web server" that served web page content and images over HTTP. Most of the content was static, and the HTTP 1.0 protocol was just a way to ship files around. Quickly the "web server" category evolved to include CGI capability - effectively launching a process on each web request to generate dynamic content. HTTP also matured and the products became more sophisticated, with caching, security, and management features. As the technology matured, we got company-specific Java-based server-side technology from Kiva and NetDynamics, which eventually all merged into JSP. Microsoft added ASP, I think in 1996, to Windows NT 4.0. The static web server had learned some new tricks, so that it was an effective "app server" for many scenarios.
+
+In a parallel category, the app server had evolved and existed for a long time. companies delivered products for Unix like Tuxedo, TopEnd, Encina that were philosophically derived from Mainframe application management and monitoring environments like IMS and CICS. Microsoft's offering was Microsoft Transaction Server (MTS), which later evolved into COM+. Most of these products specified "closed" product-specific communications protocols to interconnect "fat" clients to servers. (For Encina, the comms protocol was DCE RPC; for MTS it was DCOM; etc.) In 1995/96, these traditional app server products began to embed basic HTTP communication capability, at first via gateways. And the lines began to blur.
+
+Web servers got more and more mature with respect to handling higher loads, more concurrency, and better features. App servers delivered more and more HTTP-based communication capability.
+
+At this point the line between "app server" and "web server" is a fuzzy one. But people continue to use the terms differently, as a matter of emphasis. When someone says "web server" you often think HTTP-centric, web UI, oriented apps. When someone says "App server" you may think "heavier loads, enterprise features, transactions and queuing, multi-channel communication (HTTP + more). But often it is the same product that serves both sets of workload requirements.
+
+WebSphere, IBM's "app server" has its own bundled web server.
+WebLogic, another traditional app server, likewise.
+Windows, which is Microsoft's App Server (in addition to being its File&Print Server, Media Server, etc.), bundles IIS.
+
+Following are some of the key differences in features of Web Server and Application Server:
+
+Web Server is designed to serve HTTP Content. App Server can also serve HTTP Content but is not limited to just HTTP. It can be provided other protocol support such as RMI/RPC
+Web Server is mostly designed to serve static content, though most Web Servers have plugins to support scripting languages like Perl, PHP, ASP, JSP etc. through which these servers can generate dynamic HTTP content.
+Most of the application servers have Web Server as integral part of them, that means App Server can do whatever Web Server is capable of. Additionally App Server have components and features to support Application level services such as Connection Pooling, Object Pooling, Transaction Support, Messaging services etc.
+As web servers are well suited for static content and app servers for dynamic content, most of the production environments have web server acting as reverse proxy to app server. That means while servicing a page request, static contents (such as images/Static HTML) are served by web server that interprets the request. Using some kind of filtering technique (mostly extension of requested resource) web server identifies dynamic content request and transparently forwards to app server
+Example of such configuration is Apache Tomcat HTTP Server and Oracle (formerly BEA) WebLogic Server. Apache Tomcat HTTP Server is Web Server and Oracle WebLogic is Application Server.
+
+In some cases the servers are tightly integrated such as IIS and .NET Runtime. IIS is web server. When equipped with .NET runtime environment, IIS is capable of providing application services.
+</p>
                                 <a class="btn btn-primary readmore">Read More <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>    
